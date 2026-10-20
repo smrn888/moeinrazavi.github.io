@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Moein Razavi-Nabavi — Control Systems & Autonomous Robotics</title>
-<meta name="description" content="Portfolio of Moein: fault-tolerant control, autonomous systems and robotics research, plus software and web projects.">
+<meta name="description" content="Portfolio of Moein Razavi-Nabavi: control systems, autonomous robotics, mechanical design, aerodynamic analysis, and MHD flow research.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2314171a'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23c4400f' font-family='monospace' font-weight='700'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,6 +107,8 @@ h2{font:600 clamp(36px,5vw,56px)/1.05 var(--display);letter-spacing:-.025em}
 .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
 .figs{display:grid;gap:18px}
 .figs.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}
+.figs.gallery.n1{grid-template-columns:minmax(0,1fr)}
+.figs.gallery.n1 .viz{height:clamp(380px,58vw,680px)}
 .figs.gallery .viz{height:clamp(180px,22vw,270px);background-color:#34345f}
 .figs.gallery .viz img{object-fit:contain;padding:6px}
 .figs.gallery .viz figcaption{left:0;right:0;bottom:0;padding:10px 12px;background:rgba(255,255,255,.92);color:#343434;font-size:10px}
@@ -244,6 +246,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="links">
       <a href="#research">Research</a>
       <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
@@ -287,7 +290,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <section class="s" id="research">
     <div class="wrap">
       <div class="sec-h"><span class="no">01</span><h2>Research</h2></div>
-      <p class="sec-intro">Academic and university projects in control, estimation and learning-based autonomy.</p>
+      <p class="sec-intro">Academic and research projects in control, estimation, learning-based autonomy, and fluid mechanics.</p>
       <div id="researchList"></div>
     </div>
   </section>
@@ -300,9 +303,36 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     </div>
   </section>
 
+  <section class="s" id="experience">
+    <div class="wrap">
+      <div class="sec-h"><span class="no">03</span><h2>Industry Experience</h2></div>
+      <p class="sec-intro">Industrial exposure to aircraft-engine electrical and control systems, complementing my work in control theory and autonomous systems.</p>
+      <article class="sheet">
+        <header class="sh">
+          <div class="sh-n">SUMMER 2018</div>
+          <div><span class="cat">MAPNA · TOGA / ENGINE SYSTEMS</span><h3>Aircraft engine electrical and control systems</h3></div>
+          <div><span class="lbl">TECHNICAL AREAS</span><div class="tags"><span>CFM56-5C2</span><span>FADEC / ECU</span><span>Instrumentation</span><span>Engine control</span><span>Actuators</span><span>Vibration</span></div></div>
+        </header>
+        <p class="sd">Completed an internship focused on understanding the electrical and control systems of the CFM56-5C2 aircraft engine. The accompanying English technical translation summarizes the report’s discussion of engine sensors and actuators, ECU and FADEC architecture, and how measured engine conditions support monitoring, control, and protection.</p>
+        <p class="role">FOCUS  Reviewed engine instrumentation and control architecture; studied pressure, temperature, shaft-speed, and vibration sensing, along with variable bleed valves, variable stator vanes, and active-clearance-control actuators.</p>
+        <div class="figs n2 gallery">
+          <figure class="viz"><img src="mapna-internship-cover.webp" alt="Cover page of the aircraft engine electrical and control systems internship report" loading="lazy"><figcaption>INTERNSHIP REPORT · SUMMER 2018</figcaption></figure>
+          <figure class="viz"><img src="mapna-cfm56-engine.webp" alt="Technical cutaway illustration of a CFM56 turbofan engine from the report" loading="lazy"><figcaption>CFM56 · ENGINE SYSTEM OVERVIEW</figcaption></figure>
+        </div>
+        <div class="pts"><span class="lbl">TECHNICAL EXPOSURE</span><ol>
+          <li><b>FADEC and ECU</b>Studied the full-authority digital engine control architecture, dual-channel ECU operation, and the role of control logic in engine performance and protection.</li>
+          <li><b>Engine sensors</b>Reviewed pressure and temperature measurement, N1/N2 shaft-speed sensing, and piezoelectric vibration sensors.</li>
+          <li><b>Actuation and safety</b>Examined VBV, VSV, and active-clearance-control actuators in relation to compressor stability, turbine clearance, and operating limits.</li>
+          <li><b>Engineering documentation</b>Prepared a technical report combining engine-system diagrams, sensor descriptions, control architecture, and references to engineering literature.</li>
+        </ol><p class="tooling">TECHNICAL AREAS  Aircraft propulsion · Instrumentation · Digital engine control · Sensor systems · Actuators · Vibration monitoring</p></div>
+        <div class="row"><a class="btn sm ghost" href="mapna-internship-report-english.pdf" target="_blank" rel="noopener">Open English report ↗</a><a class="btn sm ghost" href="mapna-internship-report-english.pdf" download>Download English report ↓</a></div>
+      </article>
+    </div>
+  </section>
+
   <section class="s" id="about">
     <div class="wrap">
-      <div class="sec-h"><span class="no">03</span><h2>Profile</h2></div>
+      <div class="sec-h"><span class="no">04</span><h2>Profile</h2></div>
       <div class="about">
         <div>
           <p>Mechanical engineer with an M.Sc. in control systems from Iran University of Science and Technology (IUST). My research focuses on autonomous systems and robotics, in particular fault-tolerant control for UAVs and for motorcycles stabilized by control moment gyroscopes (CMGs).</p>
@@ -320,7 +350,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <span class="no">04</span>
+    <span class="no">05</span>
     <h2>Let’s talk.</h2>
     <p>Open to PhD supervision conversations, research collaboration, and software or web projects.</p>
     <div class="chips">
@@ -372,7 +402,22 @@ const WORK = [
     tools: ["CATIA", "3D CAD modeling", "Mechanical assemblies", "Exploded views"],
     gallery: true,
     viz: ["catia01", "catia02", "catia03", "catia04", "catia05", "catia06", "catia07", "catia08", "catia09"],
-    cap: ["FIG. 01  Mechanical component model", "FIG. 02  Watch-style mechanism concept", "FIG. 03  Container component", "FIG. 04  Sprocket wheel", "FIG. 05  Gear and shaft assembly", "FIG. 06  Decorative silhouette model", "FIG. 07  Clamping mechanism", "FIG. 08  Exploded mechanical assembly", "FIG. 09  Tracked excavator concept"] }
+    cap: ["FIG. 01  Mechanical component model", "FIG. 02  Watch-style mechanism concept", "FIG. 03  Container component", "FIG. 04  Sprocket wheel", "FIG. 05  Gear and shaft assembly", "FIG. 06  Decorative silhouette model", "FIG. 07  Clamping mechanism", "FIG. 08  Exploded mechanical assembly", "FIG. 09  Tracked excavator concept"] },
+  { cat: "Dynamics of machinery · mechanism design & fabrication", title: "Award-winning foldable hammock: linkage design, fabrication, and structural analysis",
+    desc: "Designed and built a foldable hammock mechanism as a team project for Dynamics of Machinery at the University of Tehran. The project combined linkage synthesis, frame design, and prototype fabrication to create a compact mechanism that transitions between folded and deployed states. The final prototype was presented publicly, and the project was selected as an award-winning design.",
+    role: "Mechanical concept development, linkage and joint design, prototype fabrication, presentation, and finite-element analysis.",
+    tools: ["Mechanical linkages", "Joint design", "ABAQUS", "Finite-element analysis", "CAD", "Prototype fabrication"],
+    gallery: true,
+    viz: ["hammockAward", "hammockOpen", "hammockFolded", "hammockRender", "hammockDetail"],
+    cap: ["FIG. 01  Team presentation of the award-winning foldable hammock prototype", "FIG. 02  Engineering drawing of the deployed mechanism", "FIG. 03  Engineering drawing of the folded configuration", "FIG. 04  CAD rendering of the frame and linkage in the deployed state", "FIG. 05  Close-up of the crossing members and joints"],
+    points: [
+      ["Mechanism design", "Developed a folding frame based on linked members and pivots to make the hammock easier to store and transport."],
+      ["Detailed components", "Prepared assembly and part drawings for the frame members, central joints, and sliding/joint concepts."],
+      ["Structural analysis", "Used ABAQUS for a simplified static finite-element analysis. The course presentation reports a factor of safety of 6 under its stated assumptions."],
+      ["Build and selection", "The team designed, built, and presented the mechanism as a working prototype; the project was selected as an award-winning design."],
+      ["Prototype evidence", "A documented team presentation photo is included to show the fabricated prototype and public presentation context."]
+    ],
+    tooling: "Mechanical design, CAD, ABAQUS, static structural analysis, linkage kinematics" }
 ];
 
 const RESEARCH = [
@@ -391,6 +436,49 @@ const RESEARCH = [
       ["System integration", "Integrated pneumatic cylinders, solenoid valves, position potentiometers, Arduino, and SSR relay hardware into a working control workflow."]
     ],
     tooling: "Arduino, Java, UART / USB-to-TTL serial communication, PID control, pneumatic cylinders, solenoid valves, potentiometers, SSR relays" },
+  { cat: "Aerodynamics · computational analysis & validation", title: "NACA 4412 airfoil: experimental data vs. XFOIL",
+    desc: "Compared published experimental airfoil data with XFOIL predictions for the NACA 4412 profile at Re = 3 × 10⁶. The study examined lift, drag, and pitching-moment coefficients across angle of attack, using both viscous and inviscid analyses and reviewing the difference in predicted stall behavior.",
+    role: "Aerodynamic analysis, XFOIL simulation, coefficient plotting, and comparison against experimental reference data.",
+    tools: ["XFOIL", "NACA 4412", "Re = 3 × 10⁶", "Lift / drag / moment", "Experimental validation", "Excel plots"],
+    gallery: true,
+    viz: ["naca4412", "xfoilLift", "xfoilDrag", "xfoilMoment"],
+    cap: ["FIG. 01  NACA 4412 airfoil geometry", "FIG. 02  Viscous XFOIL lift coefficient across angle of attack", "FIG. 03  Viscous XFOIL drag coefficient across angle of attack", "FIG. 04  Viscous XFOIL pitching-moment coefficient across angle of attack"],
+    points: [
+      ["Problem setup", "Selected the NACA 4412 airfoil and used a Reynolds number of 3 × 10⁶, matching the conditions specified in the course project."],
+      ["Computational analysis", "Ran XFOIL for viscous and inviscid flow and organized the resulting aerodynamic coefficients for plotting."],
+      ["Experimental comparison", "Compared the computed trends against experimental reference plots from Theory of Wing Sections."],
+      ["Stall-angle observation", "The report notes experimental stall near 14° and an XFOIL prediction near 16°; this is a comparison from the report, not a new independent validation."],
+      ["Engineering interpretation", "Reviewed the lift, drag, and pitching-moment trends and noted that wind-tunnel tests remain important for validating numerical predictions."]
+    ],
+    tooling: "XFOIL, Excel, NACA 4412, viscous and inviscid analysis, experimental reference-data comparison" },
+  { cat: "Control systems · MATLAB / Simulink", title: "Glider autopilot: system modeling, stability and PID control",
+    desc: "Modeled an autopilot control system for a glider aircraft. The report develops a transfer-function model, examines time-domain responses and classical stability plots, and designs a PID controller in MATLAB/Simulink against specified overshoot, rise-time, settling-time, and steady-state-error targets. The report also describes inertial sensing and servo actuation as part of the autopilot concept.",
+    role: "Transfer-function derivation, stability analysis, time-response analysis, controller tuning, and performance assessment.",
+    tools: ["MATLAB", "Simulink", "PID control", "Transfer functions", "Root locus", "Bode / Nyquist"],
+    gallery: true,
+    viz: ["autopilotRoot", "autopilotBode", "autopilotNyquist", "autopilotResponse"],
+    cap: ["FIG. 01  Root-locus analysis of the modeled system", "FIG. 02  Bode magnitude and phase response", "FIG. 03  Nyquist plot used in the stability study", "FIG. 04  PID-tuned response to a step reference"],
+    points: [
+      ["System modeling", "Derived a transfer function from the provided aircraft-dynamics equations and parameter values."],
+      ["Classical analysis", "Examined step and impulse responses, root locus, Bode and Nyquist plots, and stability criteria."],
+      ["PID design", "Used the Simulink PID Tuner and linear analysis tools to tune a controller and inspect the closed-loop response."],
+      ["Performance assessment", "Evaluated overshoot, settling behavior, steady-state error, stability margins, and RMS error in the project workflow."]
+    ],
+    tooling: "MATLAB, Simulink, PID Tuner, transfer-function modeling, classical control analysis" },
+  { cat: "Co-authored research · MHD / viscoplastic flow", title: "Magnetohydrodynamic flow of viscoelastic fluids: a numerical simulation",
+    desc: "Co-authored a numerical study of yield-stress effects in a DC-operated magnetohydrodynamic (MHD) micropump. The poster describes a planar channel with electrodes and a magnetic field, and investigates how viscoplastic-fluid behavior influences velocity profiles and pressure variation. The work was presented at the 3rd National Seminar on Rheology in Tehran in July 2018; the author reports that the paper was accepted.",
+    role: "Co-authored numerical research presented as a conference poster.",
+    tools: ["MHD flow", "Viscoelastic / viscoplastic fluids", "Bingham fluid", "Numerical simulation", "Micropumps"],
+    gallery: true,
+    viz: ["mhdPoster"],
+    cap: ["CONFERENCE POSTER  Magnetohydrodynamic Flow of Viscoelastic Fluids: a Numerical Simulation · 3rd National Seminar on Rheology, Tehran, 2018"],
+    points: [
+      ["Research question", "Investigated the effect of fluid yield stress on the performance of a DC-operated MHD micropump."],
+      ["Model description", "The poster presents a two-dimensional channel with two electrodes and a magnetic field, with a viscoplastic-fluid model."],
+      ["Reported findings", "The poster discusses changes in velocity profiles and pressure variation with the Bingham number and Hartmann number."],
+      ["Research output", "Co-authored poster lists Fatemeh Malmir, Mohammad Jafari, Moein R. Nabavi, and Kayvan Sadeghy."]
+    ],
+    tooling: "Numerical fluid mechanics, MHD micropump modeling, viscoplastic-fluid analysis" },
   { cat: "Master’s thesis, prototype & registered patent", title: "Solar panel cleaning robot with a reciprocating cylindrical roller brush",
     desc: "Designed and built a two-axis prototype for dry cleaning photovoltaic panels. The concept combines a rotating cylindrical brush with a mechanical travel system and an Arduino-based control subsystem, aiming to remove dust while reducing water use and the risks associated with manual cleaning. The prototype was tested and demonstrated effective cleaning in the thesis evaluation.",
     role: "Mechanical design, subsystem selection, prototype implementation, control electronics, and cleaning-performance evaluation.",
@@ -445,11 +533,25 @@ catia07:`<img src="catia-design-07.webp" alt="CATIA mechanical CAD design 07" lo
 catia08:`<img src="catia-design-08.webp" alt="CATIA mechanical CAD design 08" loading="lazy">`,
 catia09:`<img src="catia-design-09.webp" alt="CATIA mechanical CAD design 09" loading="lazy">`,
 solar:`<img src="solar_robot_prototype.webp" alt="Prototype of the solar-panel cleaning robot with cylindrical roller brushes and Arduino-based control subsystem">`,
+naca4412:`<img src="naca4412-geometry.webp" alt="NACA 4412 airfoil geometry with camber and thickness profile" loading="lazy">`,
+xfoilLift:`<img src="xfoil-lift-curve.webp" alt="Lift coefficient versus angle of attack from viscous XFOIL data" loading="lazy">`,
+xfoilDrag:`<img src="xfoil-drag-curve.webp" alt="Drag coefficient versus angle of attack from viscous XFOIL data" loading="lazy">`,
+xfoilMoment:`<img src="xfoil-moment-curve.webp" alt="Pitching moment coefficient versus angle of attack from viscous XFOIL data" loading="lazy">`,
 pneumaticArm:`<img src="pneumatic-arm-prototype.webp" alt="Three-degree-of-freedom pneumatic robotic arm prototype" loading="lazy">`,
 pneumaticCircuit:`<img src="pneumatic-circuit-schematic.webp" alt="Pneumatic circuit schematic for the three-cylinder robotic arm" loading="lazy">`,
 pneumaticBlock:`<img src="pneumatic-control-block-diagram.webp" alt="Digital position feedback control block diagram" loading="lazy">`,
 pneumaticDetail:`<img src="pneumatic-arm-actuator-detail.webp" alt="Close-up of a pneumatic actuator and mechanical linkage" loading="lazy">`,
 pneumaticGui:`<img src="pneumatic-online-gui.webp" alt="Java desktop interface for online pneumatic robot control" loading="lazy">`,
+hammockAward:`<img src="hammock-award-photo.jpg" alt="Team presenting the award-winning foldable hammock prototype" loading="lazy">`,
+hammockOpen:`<img src="hammock-open-drawing.webp" alt="Engineering drawing of the deployed foldable hammock mechanism" loading="lazy">`,
+hammockFolded:`<img src="hammock-folded-drawing.webp" alt="Engineering drawing of the folded hammock mechanism" loading="lazy">`,
+hammockRender:`<img src="hammock-mechanism-open.webp" alt="CAD rendering of the open foldable hammock linkage" loading="lazy">`,
+hammockDetail:`<img src="hammock-joint-detail.webp" alt="Close-up of the hammock frame joints and crossing members" loading="lazy">`,
+autopilotRoot:`<img src="autopilot-root-locus.webp" alt="Root locus plot from the glider autopilot control project" loading="lazy">`,
+autopilotBode:`<img src="autopilot-bode.webp" alt="Bode plot from the glider autopilot control project" loading="lazy">`,
+autopilotNyquist:`<img src="autopilot-nyquist.webp" alt="Nyquist plot from the glider autopilot control project" loading="lazy">`,
+autopilotResponse:`<img src="autopilot-pid-response.webp" alt="PID-tuned step response from the glider autopilot control project" loading="lazy">`,
+mhdPoster:`<img src="mhd-flow-poster.webp" alt="Conference poster on numerical simulation of magnetohydrodynamic flow of viscoelastic fluids" loading="lazy">`,
 cmg:`<svg viewBox="0 0 800 340" preserveAspectRatio="xMidYMid meet">
   <line x1="40" y1="262" x2="760" y2="262" stroke="#14171a" stroke-width="1.5"/>
   ${Array.from({length:36},(_,i)=>`<line x1="${50+i*20}" y1="262" x2="${40+i*20}" y2="274" stroke="#d8d5ca"/>`).join('')}
@@ -657,7 +759,7 @@ const bar=document.getElementById('bar');
 addEventListener('scroll',()=>{const m=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(m>0?scrollY/m:0)+')'},{passive:true});
 const navLinks=[...document.querySelectorAll('.links a')];
 const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
-['research','work','about','contact'].forEach(id=>nio.observe(document.getElementById(id)));
+['research','work','experience','about','contact'].forEach(id=>nio.observe(document.getElementById(id)));
 
 /* magnetic buttons */
 if(!reduce&&matchMedia('(hover:hover)').matches)document.querySelectorAll('.mag').forEach(b=>{
