@@ -1,13 +1,17 @@
 PORTFOLIO UPDATE — UPLOAD NOTES
 
 Upload these files to the same directory as your existing index.html, replacing the old index.html:
-- index.html (updated portfolio)
-- robot_movie.html (standalone Drake / MeshCat recording for the dual-KUKA project)
-- robot_demo_20260223_125507.mp4 (PyBullet pick-and-place demo)
-- latency_analysis.png (cycle timing chart)
+- index.html
+- robot_demo.mp4 (H.264 / MP4 version of the PyBullet pick-and-place demo; preferred for browser compatibility)
+- robot_movie.html (original MeshCat HTML source, retained for local use/reference)
+- latency_analysis.png
 
-Keep all your existing site assets in place (photo.jpg, CV, legacy project images/videos, report PDFs, etc.).
-The updated page still references those existing assets.
+Keep all existing site assets in place (photo.jpg, CV, legacy project images/videos, report PDFs, and the images referenced by the Research and Work cards).
 
-TOEFL privacy note:
-The score details are shown directly on the page. The original ETS PDF is intentionally not included because it contains personal identifying information.
+Research is ordered exactly as requested. Selected CATIA mechanical designs is the first Work item.
+
+Video notes:
+- The PyBullet video was re-encoded as H.264 MP4 for better browser compatibility. The page uses native video controls and no longer forces autoplay or intercepts clicks on the player.
+- robot_movie.html is not a standalone video: it is a MeshCat client that attempts to connect to a WebSocket server. On a static website it displays “No connection to server.” The Dual-KUKA card therefore explains this limitation rather than showing a broken iframe. To make the Dual-KUKA demo playable on the website, export an MP4/WebM recording from a running Drake/MeshCat simulation and upload it alongside index.html.
+
+TOEFL privacy note: score details are shown directly on the page. The original ETS PDF is intentionally not included because it contains personal identifying information.
