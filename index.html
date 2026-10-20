@@ -391,13 +391,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 const PROFILE = { first: "Moein", last: "Razavi-Nabavi" };
 
 const WORK = [
-  { cat: "Mechanical design & CAD portfolio", title: "Selected CATIA mechanical designs",
-    desc: "A gallery of mechanical CAD models developed in CATIA, showing individual parts, gear and shaft assemblies, an exploded assembly, a linkage mechanism, and larger machine concepts. The images present the 3D geometry and assembly design work across several different projects.",
-    role: "3D CAD modeling and mechanical design visualization.",
-    tools: ["CATIA", "3D CAD modeling", "Mechanical assemblies", "Exploded views"],
-    gallery: true,
-    viz: ["catia01", "catia02", "catia03", "catia04", "catia05", "catia06", "catia07", "catia08", "catia09"],
-    cap: ["FIG. 01  Mechanical component model", "FIG. 02  Watch-style mechanism concept", "FIG. 03  Container component", "FIG. 04  Sprocket wheel", "FIG. 05  Gear and shaft assembly", "FIG. 06  Decorative silhouette model", "FIG. 07  Clamping mechanism", "FIG. 08  Exploded mechanical assembly", "FIG. 09  Tracked excavator concept"] },,
   { cat: "Web development, client project", title: "Samaneh Payesh Qodrat: knowledge-based company website",
     desc: "A bilingual (Persian and English) corporate website with a custom admin panel, built on ASP.NET Core MVC for a knowledge-based company and deployed on a Windows host.",
     role: "Back-end and front-end developer. Deployment and maintenance on IIS and Plesk.",
@@ -422,8 +415,30 @@ const WORK = [
     desc: "A mobile banking experience designed across nine phases, from research and user flows to wireframes, a UI kit and a clickable prototype.",
     tools: ["Figma", "UX research", "Prototyping", "Design systems"], viz: "phone", cap: "FIG. 01  Design process",
     links: [{ t: "Case study", h: "#" }] },
+  { cat: "Mechanical design & CAD portfolio", title: "Selected CATIA mechanical designs",
+    desc: "A gallery of mechanical CAD models developed in CATIA, showing individual parts, gear and shaft assemblies, an exploded assembly, a linkage mechanism, and larger machine concepts. The images present the 3D geometry and assembly design work across several different projects.",
+    role: "3D CAD modeling and mechanical design visualization.",
+    tools: ["CATIA", "3D CAD modeling", "Mechanical assemblies", "Exploded views"],
+    gallery: true,
+    viz: ["catia01", "catia02", "catia03", "catia04", "catia05", "catia06", "catia07", "catia08", "catia09"],
+    cap: ["FIG. 01  Mechanical component model", "FIG. 02  Watch-style mechanism concept", "FIG. 03  Container component", "FIG. 04  Sprocket wheel", "FIG. 05  Gear and shaft assembly", "FIG. 06  Decorative silhouette model", "FIG. 07  Clamping mechanism", "FIG. 08  Exploded mechanical assembly", "FIG. 09  Tracked excavator concept"] },
+  { cat: "Dynamics of machinery · mechanism design & fabrication", title: "Award-winning foldable hammock: linkage design, fabrication, and structural analysis",
+    desc: "Designed and built a foldable hammock mechanism as a team project for Dynamics of Machinery at the University of Tehran. The project combined linkage synthesis, frame design, and prototype fabrication to create a compact mechanism that transitions between folded and deployed states. The final prototype was presented publicly, and the project was selected as an award-winning design.",
+    role: "Mechanical concept development, linkage and joint design, prototype fabrication, presentation, and finite-element analysis.",
+    tools: ["Mechanical linkages", "Joint design", "ABAQUS", "Finite-element analysis", "CAD", "Prototype fabrication"],
+    gallery: true,
+    viz: ["hammockAward", "hammockOpen", "hammockFolded", "hammockRender", "hammockDetail"],
+    cap: ["FIG. 01  Team presentation of the award-winning foldable hammock prototype", "FIG. 02  Engineering drawing of the deployed mechanism", "FIG. 03  Engineering drawing of the folded configuration", "FIG. 04  CAD rendering of the frame and linkage in the deployed state", "FIG. 05  Close-up of the crossing members and joints"],
+    points: [
+      ["Mechanism design", "Developed a folding frame based on linked members and pivots to make the hammock easier to store and transport."],
+      ["Detailed components", "Prepared assembly and part drawings for the frame members, central joints, and sliding/joint concepts."],
+      ["Structural analysis", "Used ABAQUS for a simplified static finite-element analysis. The course presentation reports a factor of safety of 6 under its stated assumptions."],
+      ["Build and selection", "The team designed, built, and presented the mechanism as a working prototype; the project was selected as an award-winning design."],
+      ["Prototype evidence", "A documented team presentation photo is included to show the fabricated prototype and public presentation context."]
+    ],
+    tooling: "Mechanical design, CAD, ABAQUS, static structural analysis, linkage kinematics" }
 
-  { cat: "AI product · full-stack development", title: "ResearchMatch — AI-assisted PhD application platform",
+  ,{ cat: "AI product · full-stack development", title: "ResearchMatch — AI-assisted PhD application platform",
     desc: "Built a full-stack SaaS platform designed to support PhD applications. The workflow brings together résumé upload, opportunity analysis, and generation of application documents in a single guided interface.",
     role: "Independent project · full-stack architecture, front-end workflow, backend integration, deployment, and resilience logic.",
     tools: ["Node.js", "Express", "Vanilla JavaScript", "Anthropic Claude API", "REST APIs", "Render", "CORS"],
@@ -602,37 +617,7 @@ const RESEARCH = [
     desc: "A selection of earlier mechanical-engineering projects completed during undergraduate study, covering mechanism design, machine elements, fabrication fixtures, and practical product development.",
     tools: ["CATIA", "Mechanical design", "Prototyping", "Machine elements"],
     points: [["Apple-peeling device", "Designed a mechanical concept for an apple-peeling device."], ["Foldable bed mechanism", "Designed a folding-bed mechanism with an emphasis on compact movement and storage."], ["Drilling jig and fixture", "Designed a jig and fixture for drilling operations."], ["Gearbox design", "Completed a gearbox design project focused on mechanical components and assembly." ]],
-    tooling: "Mechanical design, CAD, mechanism design, fabrication planning" },
-  ,{ cat: "Robotics · dual-arm manipulation · reinforcement learning", title: "Dual-KUKA arm handover using Drake and reinforcement learning",
-    desc: "Developed a simulated dual-arm KUKA IIWA handover workflow in Drake, with two seven-degree-of-freedom arms coordinating an object transfer. The supplied training code uses Stable-Baselines3 and a staged curriculum.",
-    role: "Dual-arm simulation, handover task integration, reinforcement-learning workflow, and evaluation tooling.",
-    tools: ["Drake", "MeshCat", "KUKA IIWA", "Stable-Baselines3", "PPO / SAC", "Python"],
-    notice: "The supplied robot_movie.html is a MeshCat web client, not a self-contained video. It tries to connect to a running MeshCat WebSocket server, so it displays ‘No connection to server’ on a static website. Export this simulation to MP4/WebM and add that recording here to make the demo playable.",
-    points: [["Dual-arm scene", "Configured two KUKA IIWA models facing one another and represented the transferred object."], ["Handover phases", "The task is organized into REACH_A, CARRY_A, REACH_B, HANDOVER, and CARRY_B phases."], ["Learning workflow", "Included reinforcement-learning scripts, evaluation callbacks, curriculum progression, and metrics logging."]],
-    tooling: "Drake, Python, MeshCat, NumPy, Stable-Baselines3" },
-  { cat: "Robotics · industrial automation · computer vision", title: "Industrial pick-and-place and color sorting with KUKA IIWA in PyBullet",
-    desc: "Built an Industry 4.0 simulation linking a CODESYS PLC to a simulated KUKA IIWA arm through OPC UA. The Python pipeline combines color-based vision, inverse kinematics, RRT joint-space planning, cubic-spline smoothing, and pick-and-place execution.",
-    role: "PLC/robot integration, vision-to-robot workflow, trajectory planning, and cycle-time analysis.",
-    tools: ["PyBullet", "CODESYS", "OPC UA", "OpenCV", "RRT", "Cubic spline", "Inverse kinematics"],
-    viz: ["industrialLatency"],
-    cap: ["PERFORMANCE PLOT · Per-cycle latency, boxes sorted, and total cycle time"],
-    video: { src: "robot_demo.mp4", alt: "Recorded PyBullet pick-and-place and color-sorting simulation", cap: "SIMULATION DEMO · PLC-triggered KUKA IIWA color sorting", stats: [["7 / 7", "Boxes sorted per cycle in the project README"], ["0.8–2.5 ms", "Reported OPC UA round-trip latency"], ["RRT + spline", "Joint-space planning and trajectory smoothing"]], note: "Simulation results reported in the supplied project README; not a physical-robot deployment." },
-    tooling: "Python, PyBullet, CODESYS, OPC UA, OpenCV, NumPy, SciPy" },
-  { cat: "Dynamics of machinery · mechanism design & fabrication", title: "Award-winning foldable hammock: linkage design, fabrication, and structural analysis",
-    desc: "Designed and built a foldable hammock mechanism as a team project for Dynamics of Machinery at the University of Tehran. The project combined linkage synthesis, frame design, and prototype fabrication to create a compact mechanism that transitions between folded and deployed states. The final prototype was presented publicly, and the project was selected as an award-winning design.",
-    role: "Mechanical concept development, linkage and joint design, prototype fabrication, presentation, and finite-element analysis.",
-    tools: ["Mechanical linkages", "Joint design", "ABAQUS", "Finite-element analysis", "CAD", "Prototype fabrication"],
-    gallery: true,
-    viz: ["hammockAward", "hammockOpen", "hammockFolded", "hammockRender", "hammockDetail"],
-    cap: ["FIG. 01  Team presentation of the award-winning foldable hammock prototype", "FIG. 02  Engineering drawing of the deployed mechanism", "FIG. 03  Engineering drawing of the folded configuration", "FIG. 04  CAD rendering of the frame and linkage in the deployed state", "FIG. 05  Close-up of the crossing members and joints"],
-    points: [
-      ["Mechanism design", "Developed a folding frame based on linked members and pivots to make the hammock easier to store and transport."],
-      ["Detailed components", "Prepared assembly and part drawings for the frame members, central joints, and sliding/joint concepts."],
-      ["Structural analysis", "Used ABAQUS for a simplified static finite-element analysis. The course presentation reports a factor of safety of 6 under its stated assumptions."],
-      ["Build and selection", "The team designed, built, and presented the mechanism as a working prototype; the project was selected as an award-winning design."],
-      ["Prototype evidence", "A documented team presentation photo is included to show the fabricated prototype and public presentation context."]
-    ],
-    tooling: "Mechanical design, CAD, ABAQUS, static structural analysis, linkage kinematics" }
+    tooling: "Mechanical design, CAD, mechanism design, fabrication planning" }
 ];
 
 /* ================================================================
@@ -647,7 +632,7 @@ WORK.unshift({
   viz: ["industrialLatency"],
   cap: ["PERFORMANCE PLOT · Per-cycle latency, boxes sorted, and total cycle time"],
   video: {
-    src: "robot_demo.mp4",
+    src: "robot_demo_20260223_125507.mp4",
     alt: "Recorded PyBullet pick-and-place robot simulation integrated with a CODESYS PLC",
     cap: "SIMULATION DEMO · PLC-triggered color sorting and KUKA IIWA pick-and-place",
     stats: [["7 / 7", "Boxes sorted per cycle in the supplied project README"], ["0.8–2.5 ms", "Reported OPC UA round-trip latency"], ["RRT + spline", "Joint-space planning and trajectory smoothing"]],
@@ -661,18 +646,32 @@ WORK.unshift({
   ],
   tooling: "Python, PyBullet, CODESYS, OPC UA, OpenCV, NumPy, SciPy"
 });
-/* Keep the Research section in the exact order requested for PhD applications. */
+RESEARCH.unshift({
+  cat: "Robotics · dual-arm manipulation · reinforcement learning",
+  title: "Dual-KUKA arm handover using Drake and reinforcement learning",
+  desc: "Developed a simulated dual-arm KUKA IIWA handover workflow in Drake, with two seven-degree-of-freedom arms coordinating the transfer of an object. The supplied training code uses Stable-Baselines3 and a staged curriculum; the visualization is provided as a standalone MeshCat HTML recording.",
+  role: "Simulation and visualization workflow, action smoothing, training/evaluation tooling, and dual-arm handover task integration.",
+  tools: ["Drake", "MeshCat", "KUKA IIWA", "Stable-Baselines3", "PPO / SAC", "Python"],
+  embed: "robot_movie.html",
+  embedTitle: "Interactive-style recorded MeshCat visualization of the dual-KUKA handover",
+  points: [
+    ["Dual-arm scene", "Configured two KUKA IIWA models facing one another and represented the transferred object as a visualized sphere."],
+    ["Handover phases", "The environment and training scripts organize the task into REACH_A, CARRY_A, REACH_B, HANDOVER, and CARRY_B phases."],
+    ["Learning workflow", "Included reinforcement-learning training scripts, evaluation callbacks, curriculum progression, and metrics logging."],
+    ["Visualization", "Created a standalone HTML recording from MeshCat so the simulated motion can be presented in a browser."]
+  ],
+  tooling: "Drake, Python, MeshCat, NumPy, Stable-Baselines3"
+});
+/* Rank the projects for a robotics/control PhD portfolio. */
 const researchPriority = [
   "Fault-tolerant roll stabilization of a CMG motorcycle",
   "Fault-tolerant L1 adaptive control for rotor thrust misalignment",
-  "Solar panel cleaning robot with a reciprocating cylindrical roller brush",
-  "Three-DOF pneumatic robotic arm: real-time control and graphical interface",
   "Dual-KUKA arm handover using Drake and reinforcement learning",
-  "Industrial pick-and-place and color sorting with KUKA IIWA in PyBullet",
+  "Three-DOF pneumatic robotic arm: real-time control and graphical interface",
+  "Solar panel cleaning robot with a reciprocating cylindrical roller brush",
   "Glider autopilot: system modeling, stability and PID control",
   "NACA 4412 airfoil: experimental data vs. XFOIL",
   "Magnetohydrodynamic flow of viscoelastic fluids: a numerical simulation",
-  "Award-winning foldable hammock: linkage design, fabrication, and structural analysis",
   "Arduino-based line-following robot",
   "Image-processing-based precision positioning system",
   "Selected mechanical design and fabrication projects"
@@ -825,7 +824,6 @@ const sheet=(s,i,n)=>`<article class="sheet">
   ${s.role?`<p class="role">ROLE  ${s.role}</p>`:''}
   ${figs(s)}
   ${embed(s)}
-  ${s.notice?`<p class="video-notice"><strong>Demo playback note</strong> · ${s.notice}</p>`:""}
   ${vid(s.video)}
   ${stat(s)}
   ${pts(s)}
@@ -899,10 +897,14 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* figures animate only while visible */
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   e.target.classList.toggle('on',e.isIntersecting);
+  const v=e.target.querySelector('video');
+  if(v){if(e.isIntersecting&&!reduce)v.play().catch(()=>{});else v.pause()}
 }),{threshold:.25});
 document.querySelectorAll('.viz').forEach(v=>io.observe(v));
-/* Keep native video controls reliable: no forced autoplay or click interception. */
-document.querySelectorAll('.viz video').forEach(v=>{ v.controls=true; v.preload='metadata'; });
+document.querySelectorAll('.viz video').forEach(v=>{
+  if(reduce)v.controls=true;
+  v.addEventListener('click',()=>v.paused?v.play():v.pause());
+});
 
 /* counters */
 const cio=new IntersectionObserver(es=>es.forEach(e=>{
