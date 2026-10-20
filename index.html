@@ -376,6 +376,21 @@ const WORK = [
 ];
 
 const RESEARCH = [
+  { cat: "Bachelor’s thesis · pneumatic robotics & online control", title: "Three-DOF pneumatic robotic arm: real-time control and graphical interface",
+    desc: "Developed and refined the control stack for a three-degree-of-freedom pneumatic robotic arm. The project addressed the practical difficulty of positioning fast pneumatic cylinders with compressible air, combining Arduino-based control, position feedback, PID tuning, and a Java desktop interface for live commands and telemetry.",
+    role: "Control-system development and refinement of the existing prototype: hardware troubleshooting, PID controller correction, serial communication, and real-time GUI implementation.",
+    tools: ["Pneumatic actuators", "Arduino", "PID control", "Java GUI", "UART / serial", "Position feedback", "SSR relays"],
+    gallery: true,
+    viz: ["pneumaticArm", "pneumaticCircuit", "pneumaticBlock", "pneumaticDetail", "pneumaticGui"],
+    cap: ["FIG. 01  Three-DOF pneumatic robotic-arm prototype documented in the thesis", "FIG. 02  Pneumatic circuit schematic for the three-cylinder system", "FIG. 03  Digital feedback-control loop: command, controller, plant and position feedback", "FIG. 04  Close-up of the actuator and mechanical linkage", "FIG. 05  Java graphical interface for setting controller parameters and sending commands"],
+    points: [
+      ["Hardware refinement", "Investigated and corrected practical issues in the existing mechanism, including mechanical interference and looseness."],
+      ["PID control", "Reviewed and corrected the implemented PID control logic to improve cylinder-position tracking."],
+      ["Online computer control", "Created a Java graphical interface to let an operator change commands and controller parameters without repeatedly reprogramming the microcontroller."],
+      ["Serial telemetry", "Implemented two-way serial communication between the computer interface and Arduino, including live position and control-data feedback."],
+      ["System integration", "Integrated pneumatic cylinders, solenoid valves, position potentiometers, Arduino, and SSR relay hardware into a working control workflow."]
+    ],
+    tooling: "Arduino, Java, UART / USB-to-TTL serial communication, PID control, pneumatic cylinders, solenoid valves, potentiometers, SSR relays" },
   { cat: "Master’s thesis, prototype & registered patent", title: "Solar panel cleaning robot with a reciprocating cylindrical roller brush",
     desc: "Designed and built a two-axis prototype for dry cleaning photovoltaic panels. The concept combines a rotating cylindrical brush with a mechanical travel system and an Arduino-based control subsystem, aiming to remove dust while reducing water use and the risks associated with manual cleaning. The prototype was tested and demonstrated effective cleaning in the thesis evaluation.",
     role: "Mechanical design, subsystem selection, prototype implementation, control electronics, and cleaning-performance evaluation.",
@@ -430,6 +445,11 @@ catia07:`<img src="catia-design-07.webp" alt="CATIA mechanical CAD design 07" lo
 catia08:`<img src="catia-design-08.webp" alt="CATIA mechanical CAD design 08" loading="lazy">`,
 catia09:`<img src="catia-design-09.webp" alt="CATIA mechanical CAD design 09" loading="lazy">`,
 solar:`<img src="solar_robot_prototype.webp" alt="Prototype of the solar-panel cleaning robot with cylindrical roller brushes and Arduino-based control subsystem">`,
+pneumaticArm:`<img src="pneumatic-arm-prototype.webp" alt="Three-degree-of-freedom pneumatic robotic arm prototype" loading="lazy">`,
+pneumaticCircuit:`<img src="pneumatic-circuit-schematic.webp" alt="Pneumatic circuit schematic for the three-cylinder robotic arm" loading="lazy">`,
+pneumaticBlock:`<img src="pneumatic-control-block-diagram.webp" alt="Digital position feedback control block diagram" loading="lazy">`,
+pneumaticDetail:`<img src="pneumatic-arm-actuator-detail.webp" alt="Close-up of a pneumatic actuator and mechanical linkage" loading="lazy">`,
+pneumaticGui:`<img src="pneumatic-online-gui.webp" alt="Java desktop interface for online pneumatic robot control" loading="lazy">`,
 cmg:`<svg viewBox="0 0 800 340" preserveAspectRatio="xMidYMid meet">
   <line x1="40" y1="262" x2="760" y2="262" stroke="#14171a" stroke-width="1.5"/>
   ${Array.from({length:36},(_,i)=>`<line x1="${50+i*20}" y1="262" x2="${40+i*20}" y2="274" stroke="#d8d5ca"/>`).join('')}
