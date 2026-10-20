@@ -119,6 +119,9 @@ h2{font:600 clamp(36px,5vw,56px)/1.05 var(--display);letter-spacing:-.025em}
 .vrow{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(240px,1fr);gap:18px;margin-top:18px}
 .viz.video{height:auto;background:#14171a}
 .viz.video video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;cursor:pointer}
+.viz.embed{height:clamp(360px,52vw,620px);background:#111; margin-top:18px}
+.viz.embed iframe{display:block;width:100%;height:100%;border:0;background:#fff}
+.toefl-score{font:600 clamp(38px,5vw,58px)/1 var(--display);color:var(--acc)}
 .viz.video figcaption{position:static;padding:12px 14px;background:var(--card);border-top:1px solid var(--line);line-height:1.5}
 .readout{border:1px solid var(--line);background:var(--card);padding:6px 24px 20px;display:flex;flex-direction:column}
 .readout div{padding:16px 0;border-bottom:1px dotted var(--line)}
@@ -222,7 +225,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .stat:nth-child(n+3){border-top:1px dashed var(--line)}
 }
 @media (max-width:640px){
-  .links{gap:18px}.links a{font-size:14px}
+  .links{gap:12px;max-width:calc(100vw - 110px);overflow-x:auto;scrollbar-width:none}
+  .links::-webkit-scrollbar{display:none}
+  .links a{font-size:12px;white-space:nowrap}
   .nav-cta{display:none}
   .id-row{flex-direction:column;align-items:flex-start;gap:22px}
   .avatar{width:96px;height:96px;font-size:36px}
@@ -247,7 +252,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <a href="#research">Research</a>
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
-      <a href="#about">About</a>
+      <a href="#about">Profile</a>
+      <a href="#toefl">TOEFL</a>
       <a href="#contact">Contact</a>
     </div>
     <a class="btn sm nav-cta" href="Moein-CV.pdf" download>Résumé ↓</a>
@@ -263,7 +269,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="avatar late" style="--d:100" aria-hidden="true">M<img src="photo.jpg" alt="" onerror="this.remove()"></div>
       <h1 id="name" aria-label="Moein Razavi-Nabavi"></h1>
     </div>
-    <p class="lede late" style="--d:200">I design controllers that keep autonomous machines stable when things go wrong: UAVs, self-balancing motorcycles, and the software around them.</p>
+    <p class="lede late" style="--d:200">I work at the intersection of robotics, control, and learning-based autonomy — from fault-tolerant MPC and reinforcement learning to robotic manipulation and PLC-integrated pick-and-place systems. I am preparing for PhD research in robotics and control.</p>
     <div class="cta late" style="--d:300">
       <a class="btn solid mag" href="#research">Read the research</a>
       <a class="btn mag" href="#work">View the work</a>
@@ -290,7 +296,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <section class="s" id="research">
     <div class="wrap">
       <div class="sec-h"><span class="no">01</span><h2>Research</h2></div>
-      <p class="sec-intro">Academic and research projects in control, estimation, learning-based autonomy, and fluid mechanics.</p>
+      <p class="sec-intro">Research-led work in autonomous robotics, fault-tolerant control, learning-based control, and robotic manipulation — ordered by relevance to PhD research in robotics and control.</p>
       <div id="researchList"></div>
     </div>
   </section>
@@ -298,7 +304,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <section class="s" id="work">
     <div class="wrap">
       <div class="sec-h"><span class="no">02</span><h2>Work</h2></div>
-      <p class="sec-intro">Software, automation and web projects: things I built to run, ship and be used.</p>
+      <p class="sec-intro">Robotics software, simulation, industrial automation, and deployed engineering systems.</p>
       <div id="workList"></div>
     </div>
   </section>
@@ -335,15 +341,29 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="sec-h"><span class="no">04</span><h2>Profile</h2></div>
       <div class="about">
         <div>
-          <p>Mechanical engineer with an M.Sc. in control systems from Iran University of Science and Technology (IUST). My research focuses on autonomous systems and robotics, in particular fault-tolerant control for UAVs and for motorcycles stabilized by control moment gyroscopes (CMGs).</p>
-          <p>I write the software that makes the theory run: convex MPC solvers, reinforcement learning agents, and ROS 2 / Gazebo simulations. I am currently applying for PhD positions.</p>
+          <p>I am a mechanical engineer with an M.Sc. in Control Systems from Iran University of Science and Technology (IUST). My interests lie in robotics, nonlinear and fault-tolerant control, model predictive control (MPC), and reinforcement learning for autonomous systems.</p>
+          <p>My projects span simulated CMG motorcycle stabilization, fault-tolerant UAV control, dual-arm KUKA manipulation in Drake, and an Industry 4.0 pick-and-place pipeline integrating CODESYS PLC, OPC UA, computer vision, trajectory planning, and PyBullet. I am seeking PhD opportunities in robotics, autonomous systems, and control.</p>
         </div>
         <div class="skills">
-          <section><span class="lbl">CONTROL</span><ul><li>Fault-tolerant control</li><li>Model predictive control (MPC)</li><li>Reinforcement learning (SAC)</li></ul></section>
-          <section><span class="lbl">OPTIMIZATION</span><ul><li>CVXPY</li><li>OSQP</li></ul></section>
-          <section><span class="lbl">ROBOTICS &amp; LEARNING</span><ul><li>ROS 2 and Gazebo</li><li>stable-baselines3</li></ul></section>
+          <section><span class="lbl">CONTROL &amp; LEARNING</span><ul><li>Fault-tolerant and adaptive control</li><li>Model predictive control (MPC)</li><li>Reinforcement learning (SAC / PPO)</li></ul></section>
+          <section><span class="lbl">ROBOTICS &amp; SIMULATION</span><ul><li>Drake / PyBullet / MuJoCo</li><li>ROS 2 and Gazebo</li><li>Robot manipulation and trajectory planning</li></ul></section>
+          <section><span class="lbl">OPTIMIZATION &amp; INTEGRATION</span><ul><li>CVXPY / OSQP</li><li>Python, CODESYS, OPC UA</li><li>stable-baselines3</li></ul></section>
         </div>
       </div>
+    </div>
+  </section>
+  <section class="s" id="toefl">
+    <div class="wrap">
+      <div class="sec-h"><span class="no">05</span><h2>English Proficiency</h2></div>
+      <p class="sec-intro">TOEFL iBT score report · Test date: September 9, 2026.</p>
+      <article class="sheet">
+        <header class="sh">
+          <div class="sh-n">TOEFL iBT<br>SEP 09 · 2026</div>
+          <div><span class="cat">ENGLISH PROFICIENCY</span><h3>100 / 120</h3><p style="margin-top:10px;color:var(--muted)">CEFR level: C1 · Overall score: 5.0 / 6</p></div>
+          <div><span class="lbl">SECTION SCORES</span><div class="tags"><span>Reading 5.5 / 6</span><span>Listening 5.0 / 6</span><span>Writing 5.0 / 6</span><span>Speaking 4.5 / 6</span></div></div>
+        </header>
+        <p class="sd">Scores transcribed from the supplied ETS Test Taker Score Report. The original report is not linked publicly because it contains personal identifying information.</p>
+      </article>
     </div>
   </section>
 </main>
@@ -354,11 +374,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <h2>Let’s talk.</h2>
     <p>Open to PhD supervision conversations, research collaboration, and software or web projects.</p>
     <div class="chips">
-      <!-- TODO: replace the hrefs and text below -->
-      <a href="mailto:you@example.com">you@example.com</a>
-      <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar ↗</a>
+      <a href="mailto:Moeinrazavinabavi@gmail.com">Moeinrazavinabavi@gmail.com</a>
+      <a href="tel:+989393735383">+98 939 373 5383</a>
+      <a href="https://github.com/smrn888/" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/moein-razavi-nabavi/" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a href="Moein-CV.pdf" download>Résumé ↓</a>
     </div>
   </div>
@@ -418,6 +437,74 @@ const WORK = [
       ["Prototype evidence", "A documented team presentation photo is included to show the fabricated prototype and public presentation context."]
     ],
     tooling: "Mechanical design, CAD, ABAQUS, static structural analysis, linkage kinematics" }
+
+  ,{ cat: "AI product · full-stack development", title: "ResearchMatch — AI-assisted PhD application platform",
+    desc: "Built a full-stack SaaS platform designed to support PhD applications. The workflow brings together résumé upload, opportunity analysis, and generation of application documents in a single guided interface.",
+    role: "Independent project · full-stack architecture, front-end workflow, backend integration, deployment, and resilience logic.",
+    tools: ["Node.js", "Express", "Vanilla JavaScript", "Anthropic Claude API", "REST APIs", "Render", "CORS"],
+    points: [
+      ["Secure API proxy", "Implemented a Node.js and Express proxy to keep the Claude API key on the server rather than exposing it in the browser."],
+      ["Multi-step application workflow", "Built a responsive single-page interface for résumé upload, opportunity analysis, and output-document generation."],
+      ["Fallback behavior", "Added backend fallback logic so the interface can handle AI-service unavailability without crashing."],
+      ["Deployment", "Deployed the application on Render and configured static routing and cross-origin access." ]
+    ],
+    links: [{ t: "Live demo", h: "https://researchmatch-ar0o.onrender.com" }, { t: "GitHub repository", h: "https://github.com/smrn888/ResearchMatch" }],
+    tooling: "JavaScript, Node.js, Express, REST, HTML/CSS, Render" },
+  { cat: "Real-time application · Android", title: "DorBazi — Persian social party-game platform",
+    desc: "Developed a mobile-friendly social gaming application featuring multiple Persian mini-games for groups and gatherings, with an emphasis on interactive user experience and a reusable front-end architecture.",
+    role: "Software development · interactive UI, game logic, score and timer systems, state management, and Android packaging.",
+    tools: ["React", "Vite", "JavaScript", "CSS", "Android", "State management"],
+    points: [
+      ["Game mechanics", "Implemented scoring, timers, and game-state logic for multiple mini-games."],
+      ["Reusable architecture", "Structured reusable components to make additional games easier to integrate."],
+      ["Mobile experience", "Built a responsive interface and packaged an Android version of the application." ]
+    ],
+    tooling: "React, Vite, JavaScript, CSS, Android app packaging" },
+  { cat: "Real-time networking · multiplayer systems", title: "WizardGame — real-time multiplayer battle platform",
+    desc: "Developed a client–server multiplayer game with real-time player interaction, combat mechanics, progression systems, and a persistent backend. The project combines an interactive Unity client with web technologies and real-time networking.",
+    role: "Full-stack development across gameplay systems, networking, backend APIs, and performance optimization.",
+    tools: ["Unity", "C#", "Node.js", "Express", "MongoDB", "Socket.IO", "WebSocket", "Python", "Blender"],
+    points: [
+      ["Gameplay systems", "Implemented player-versus-player combat, more than 20 spells, experience and level progression, quests, inventory, and an in-game shop."],
+      ["Real-time networking", "Used WebSocket and Socket.IO communication, with player-position updates throttled at 100 ms to reduce network traffic."],
+      ["Backend and security", "Built REST APIs for authentication, player management, and shop logic, with JWT, bcrypt, rate limiting, Helmet, and input validation."],
+      ["Performance", "Applied object pooling, asynchronous API calls, database indexing, and position-delta compression." ]
+    ],
+    links: [{ t: "Client repository", h: "https://github.com/smrn888/WizardGameClient" }, { t: "Server repository", h: "https://github.com/smrn888/WizardGameServer" }],
+    tooling: "Unity, C#, Node.js, Express, MongoDB, Socket.IO, Python" },
+  { cat: "Computer vision · data automation", title: "Iranian AI/ML job-market scraper",
+    desc: "Created an automated data-collection pipeline for AI/ML job listings on Iranian recruitment platforms, combining browser automation, visual interaction with slider CAPTCHA challenges, and structured data export.",
+    role: "Automation development · browser workflows, computer vision, data extraction, and processing pipeline.",
+    tools: ["Python", "Selenium", "OpenCV", "Computer vision", "Google Sheets API", "CSV"],
+    points: [
+      ["Browser automation", "Automated job-listing collection and login/session workflows on Jobinja and Jobvision."],
+      ["Visual CAPTCHA interaction", "Used OpenCV template matching to estimate slider position and simulate a drag interaction."],
+      ["Structured data", "Extracted job titles, employers, locations, salary information, and required skills into CSV and Google Sheets." ]
+    ],
+    tooling: "Python, Selenium, OpenCV, ChromeDriver, Google Sheets API" },
+  { cat: "Computer vision · deep learning", title: "Deep-learning image analysis: detection, classification, and segmentation",
+    desc: "Built three image-analysis experiments covering object detection, image classification, and semantic segmentation. These projects provide a foundation in visual perception methods relevant to robotics, while remaining separate from the robotics systems presented in the research section.",
+    tools: ["ResNet-101", "Xception", "U-Net", "CNNs", "Transfer learning", "Data augmentation"],
+    points: [
+      ["Fruit object detection", "Developed a ResNet-101-based detection model using bounding-box regression and deep convolutional neural networks."],
+      ["Animal-image classification", "Fine-tuned an Xception architecture on real-world image datasets."],
+      ["Pedestrian segmentation", "Built a U-Net image-segmentation experiment using data augmentation and transfer learning." ]
+    ],
+    tooling: "Deep learning, convolutional neural networks, object detection, image classification, image segmentation" },
+  { cat: "Web development · university platform", title: "University of Tehran Faculty of Tourism website",
+    desc: "Contributed to the development of the Faculty of Tourism website at the University of Tehran on the Liferay content-management platform.",
+    role: "Software development · front-end templates and CMS plug-ins.",
+    tools: ["Liferay CMS", "HTML", "CSS", "Web templates", "Plug-in development"],
+    tooling: "Liferay, HTML, CSS" },
+  { cat: "Front-end development · e-commerce", title: "React e-commerce front end",
+    desc: "Developed a functional-component-based e-commerce website during front-end development work, using React and Redux for interface state and routing, with browser storage and token-based flows.",
+    tools: ["React", "Redux", "JavaScript", "HTML", "CSS", "Routing", "Local storage"],
+    tooling: "React, Redux, JavaScript, HTML/CSS" },
+  { cat: "Web development · content management", title: "WordPress websites and freelance web projects",
+    desc: "Completed freelance website work and WordPress customization, alongside earlier website-design roles. Small independent builds included a weather forecast app, to-do list, phone book, calculator, and typing game.",
+    tools: ["WordPress", "HTML", "CSS", "JavaScript", "Website customization"],
+    links: [{ t: "CodePen projects", h: "https://codepen.io/smrn888" }],
+    tooling: "WordPress, HTML, CSS, JavaScript" }
 ];
 
 const RESEARCH = [
@@ -516,9 +603,80 @@ const RESEARCH = [
               ["181×", "faster command computation, distilled neural MPC vs. teacher MPC"],
               ["75% → 3%", "Residual SAC survival, reduced model to unmodified MuJoCo model"],
               ["44%", "with a torque supervisor on the MuJoCo model (not zero-shot transfer)"]],
-      note: "Frozen policies, 450 episodes per configuration. Simulation only." } }
+      note: "Frozen policies, 450 episodes per configuration. Simulation only." } },
+  { cat: "Robotics · Arduino · mobile robot", title: "Arduino-based line-following robot",
+    desc: "Designed and built a mobile robot that follows a path using Arduino-based sensing and control. This earlier hands-on project introduced embedded control, sensor-based navigation, and integration of electronics with a moving platform.",
+    tools: ["Arduino", "Embedded control", "Sensors", "Mobile robotics"],
+    points: [["Robot control", "Implemented the control logic required to follow a marked route."], ["System integration", "Combined the sensing, controller, and mobile platform into a working prototype."]],
+    tooling: "Arduino, embedded programming, sensor-based navigation" },
+  { cat: "Instrumentation · image processing", title: "Image-processing-based precision positioning system",
+    desc: "Designed an instrumentation concept for precise positioning using image processing. The project explored the use of visual measurements as feedback for locating and positioning a target.",
+    tools: ["Image processing", "Instrumentation", "Position measurement", "Computer vision"],
+    tooling: "Image processing, measurement systems, precision positioning" },
+  { cat: "Mechanical design · prototyping", title: "Selected mechanical design and fabrication projects",
+    desc: "A selection of earlier mechanical-engineering projects completed during undergraduate study, covering mechanism design, machine elements, fabrication fixtures, and practical product development.",
+    tools: ["CATIA", "Mechanical design", "Prototyping", "Machine elements"],
+    points: [["Apple-peeling device", "Designed a mechanical concept for an apple-peeling device."], ["Foldable bed mechanism", "Designed a folding-bed mechanism with an emphasis on compact movement and storage."], ["Drilling jig and fixture", "Designed a jig and fixture for drilling operations."], ["Gearbox design", "Completed a gearbox design project focused on mechanical components and assembly." ]],
+    tooling: "Mechanical design, CAD, mechanism design, fabrication planning" }
 ];
 
+/* ================================================================
+   NEW ROBOTICS PORTFOLIO PROJECTS + APPLICATION-FOCUSED ORDER
+   ================================================================ */
+WORK.unshift({
+  cat: "Robotics · Industry 4.0 · PLC / OPC UA / computer vision",
+  title: "Industrial pick-and-place and color sorting with KUKA IIWA in PyBullet",
+  desc: "Built an end-to-end Industry 4.0 simulation connecting a CODESYS PLC to a simulated KUKA IIWA arm through OPC UA. The Python system combines overhead-camera color detection, a pick-and-place state flow, inverse kinematics, RRT joint-space planning, cubic-spline smoothing, and a trapezoidal velocity profile.",
+  role: "System integration, Python controller, vision-to-robot pipeline, trajectory planning, PLC communication, and timing analysis.",
+  tools: ["PyBullet", "CODESYS", "OPC UA / asyncua", "OpenCV", "RRT", "Cubic spline", "Inverse kinematics"],
+  viz: ["industrialLatency"],
+  cap: ["PERFORMANCE PLOT · Per-cycle latency, boxes sorted, and total cycle time"],
+  video: {
+    src: "robot_demo_20260223_125507.mp4",
+    alt: "Recorded PyBullet pick-and-place robot simulation integrated with a CODESYS PLC",
+    cap: "SIMULATION DEMO · PLC-triggered color sorting and KUKA IIWA pick-and-place",
+    stats: [["7 / 7", "Boxes sorted per cycle in the supplied project README"], ["0.8–2.5 ms", "Reported OPC UA round-trip latency"], ["RRT + spline", "Joint-space planning and trajectory smoothing"]],
+    note: "Simulation results reported in the project README; not a physical-robot deployment."
+  },
+  points: [
+    ["PLC communication", "Connected to CODESYS Control Win V3 x64 through OPC UA with keepalive and reconnect handling."],
+    ["Vision-guided sorting", "Used OpenCV HSV segmentation to detect red, blue, green, and yellow boxes and assign them to matching baskets."],
+    ["Motion planning", "Combined inverse kinematics, RRT planning, cubic-spline smoothing, and a trapezoidal velocity profile."],
+    ["Monitoring", "Logged cycle timing and generated a latency analysis plot to inspect communication, vision, and robot-execution time."]
+  ],
+  tooling: "Python, PyBullet, CODESYS, OPC UA, OpenCV, NumPy, SciPy"
+});
+RESEARCH.unshift({
+  cat: "Robotics · dual-arm manipulation · reinforcement learning",
+  title: "Dual-KUKA arm handover using Drake and reinforcement learning",
+  desc: "Developed a simulated dual-arm KUKA IIWA handover workflow in Drake, with two seven-degree-of-freedom arms coordinating the transfer of an object. The supplied training code uses Stable-Baselines3 and a staged curriculum; the visualization is provided as a standalone MeshCat HTML recording.",
+  role: "Simulation and visualization workflow, action smoothing, training/evaluation tooling, and dual-arm handover task integration.",
+  tools: ["Drake", "MeshCat", "KUKA IIWA", "Stable-Baselines3", "PPO / SAC", "Python"],
+  embed: "robot_movie.html",
+  embedTitle: "Interactive-style recorded MeshCat visualization of the dual-KUKA handover",
+  points: [
+    ["Dual-arm scene", "Configured two KUKA IIWA models facing one another and represented the transferred object as a visualized sphere."],
+    ["Handover phases", "The environment and training scripts organize the task into REACH_A, CARRY_A, REACH_B, HANDOVER, and CARRY_B phases."],
+    ["Learning workflow", "Included reinforcement-learning training scripts, evaluation callbacks, curriculum progression, and metrics logging."],
+    ["Visualization", "Created a standalone HTML recording from MeshCat so the simulated motion can be presented in a browser."]
+  ],
+  tooling: "Drake, Python, MeshCat, NumPy, Stable-Baselines3"
+});
+/* Rank the projects for a robotics/control PhD portfolio. */
+const researchPriority = [
+  "Fault-tolerant roll stabilization of a CMG motorcycle",
+  "Fault-tolerant L1 adaptive control for rotor thrust misalignment",
+  "Dual-KUKA arm handover using Drake and reinforcement learning",
+  "Three-DOF pneumatic robotic arm: real-time control and graphical interface",
+  "Solar panel cleaning robot with a reciprocating cylindrical roller brush",
+  "Glider autopilot: system modeling, stability and PID control",
+  "NACA 4412 airfoil: experimental data vs. XFOIL",
+  "Magnetohydrodynamic flow of viscoelastic fluids: a numerical simulation",
+  "Arduino-based line-following robot",
+  "Image-processing-based precision positioning system",
+  "Selected mechanical design and fabrication projects"
+];
+RESEARCH.sort((a,b) => researchPriority.indexOf(a.title) - researchPriority.indexOf(b.title));
 /* ================================================================
    FIGURES
    ================================================================ */
@@ -583,6 +741,7 @@ phone:`<svg viewBox="0 0 800 340" preserveAspectRatio="xMidYMid meet">
   ${[['UI kit',570,70],['Prototype',570,140],['Handoff',570,210]].map(([t,x,y],i)=>`<g class="chip" style="--k:${i+3}"><rect x="${x}" y="${y}" width="140" height="42" rx="4"/><text x="${x+70}" y="${y+26}" text-anchor="middle" class="f-lbl" style="fill:#14171a">${t}</text></g><path d="M475 ${y+21} H${x}" stroke="#d8d5ca" stroke-dasharray="3 5"/>`).join('')}
 </svg>`,
 };
+VIZ.industrialLatency = `<img src="latency_analysis.png" alt="Cycle latency, sorted boxes per cycle, and total cycle time for the PLC and PyBullet robot integration" loading="lazy">`;
 
 /* ================================================================
    RENDER
@@ -648,9 +807,10 @@ VIZ.uavres=(()=>{
   return `<svg viewBox="0 0 560 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Error comparison between sliding mode with fast and delayed detection, and hybrid L1 versus Lyapunov position control">${g}<text class="f-lbl" x="12" y="150" transform="rotate(-90 12 150)" text-anchor="middle">metres</text></svg>`;
 })();
 
-const figs=s=>{const ks=[].concat(s.viz),cs=[].concat(s.cap);return `<div class="figs n${ks.length} ${s.gallery?'gallery':''}">${ks.map((k,j)=>`<figure class="viz">${VIZ[k]}<figcaption>${cs[j]}</figcaption></figure>`).join('')}</div>`};
+const figs=s=>s.viz?(()=>{const ks=[].concat(s.viz),cs=[].concat(s.cap);return `<div class="figs n${ks.length} ${s.gallery?'gallery':''}">${ks.map((k,j)=>`<figure class="viz">${VIZ[k]}<figcaption>${cs[j]}</figcaption></figure>`).join('')}</div>`})():'';
 const vid=v=>v?`<div class="vrow"><figure class="viz video"><video controls src="${v.src}" poster="${v.poster}" muted playsinline preload="metadata" aria-label="${v.alt}"><source src="${v.src}" type="video/mp4">Your browser does not support MP4 video.</video><figcaption>${v.cap}</figcaption></figure><dl class="readout">${v.stats.map(([b,l])=>`<div><dt>${b}</dt><dd>${l}</dd></div>`).join('')}<p>${v.note}</p></dl></div>`:'';
 
+const embed=s=>s.embed?`<figure class="viz embed"><iframe src="${s.embed}" title="${s.embedTitle||s.title}" loading="lazy" allow="fullscreen"></iframe><figcaption>${s.embedTitle||s.title}</figcaption></figure>`:'';
 const stat=s=>s.stats?`<dl class="readout wide">${s.stats.map(([b,l])=>`<div><dt>${b}</dt><dd>${l}</dd></div>`).join('')}</dl>`:'';
 const pts=s=>s.points?`<div class="pts"><span class="lbl">WHAT I DID</span><ol>${s.points.map(([h,t])=>`<li><b>${h}</b>${t}</li>`).join('')}</ol>${s.tooling?`<p class="tooling">TOOLING  ${s.tooling}</p>`:''}</div>`:'';
 const pad=n=>String(n).padStart(2,'0');
@@ -663,6 +823,7 @@ const sheet=(s,i,n)=>`<article class="sheet">
   <p class="sd">${s.desc}</p>
   ${s.role?`<p class="role">ROLE  ${s.role}</p>`:''}
   ${figs(s)}
+  ${embed(s)}
   ${vid(s.video)}
   ${stat(s)}
   ${pts(s)}
@@ -759,7 +920,7 @@ const bar=document.getElementById('bar');
 addEventListener('scroll',()=>{const m=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(m>0?scrollY/m:0)+')'},{passive:true});
 const navLinks=[...document.querySelectorAll('.links a')];
 const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
-['research','work','experience','about','contact'].forEach(id=>nio.observe(document.getElementById(id)));
+['research','work','experience','about','toefl','contact'].forEach(id=>nio.observe(document.getElementById(id)));
 
 /* magnetic buttons */
 if(!reduce&&matchMedia('(hover:hover)').matches)document.querySelectorAll('.mag').forEach(b=>{

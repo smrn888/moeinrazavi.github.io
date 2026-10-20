@@ -1,0 +1,13 @@
+PORTFOLIO UPDATE — UPLOAD NOTES
+
+Upload these files to the same directory as your existing index.html, replacing the old index.html:
+- index.html (updated portfolio)
+- robot_movie.html (standalone Drake / MeshCat recording for the dual-KUKA project)
+- robot_demo_20260223_125507.mp4 (PyBullet pick-and-place demo)
+- latency_analysis.png (cycle timing chart)
+
+Keep all your existing site assets in place (photo.jpg, CV, legacy project images/videos, report PDFs, etc.).
+The updated page still references those existing assets.
+
+TOEFL privacy note:
+The score details are shown directly on the page. The original ETS PDF is intentionally not included because it contains personal identifying information.
