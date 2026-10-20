@@ -100,11 +100,18 @@ h2{font:600 clamp(36px,5vw,56px)/1.05 var(--display);letter-spacing:-.025em}
 .tags span{font:12px var(--mono);border:1px solid var(--line);padding:6px 10px;background:var(--bg)}
 .sd{max-width:70ch;margin:30px 0 28px;color:var(--muted)}
 .viz{position:relative;height:clamp(260px,34vw,390px);border:1px solid var(--line);overflow:hidden;background-color:var(--card);background-image:linear-gradient(rgba(216,213,202,.45) 1px,transparent 1px),linear-gradient(90deg,rgba(216,213,202,.45) 1px,transparent 1px);background-size:34px 34px}
-.viz svg,.viz canvas{width:100%;height:100%;display:block}
+.viz svg,.viz canvas,.viz img{width:100%;height:100%;display:block}
+.viz img{object-fit:cover}
 .viz figcaption{position:absolute;left:14px;bottom:10px;font:11px var(--mono);color:var(--muted);letter-spacing:.04em}
 .viz:not(.on) *{animation-play-state:paused!important}
 .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
 .figs{display:grid;gap:18px}
+.figs.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}
+.figs.gallery .viz{height:clamp(180px,22vw,270px);background-color:#34345f}
+.figs.gallery .viz img{object-fit:contain;padding:6px}
+.figs.gallery .viz figcaption{left:0;right:0;bottom:0;padding:10px 12px;background:rgba(255,255,255,.92);color:#343434;font-size:10px}
+@media (max-width:900px){.figs.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.figs.gallery{grid-template-columns:1fr}.figs.gallery .viz{height:260px}}
 .figs.n2{grid-template-columns:1fr 1fr}
 .figs.n2 .viz{height:clamp(250px,27vw,350px)}
 .vrow{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(240px,1fr);gap:18px;margin-top:18px}
@@ -358,7 +365,14 @@ const WORK = [
   { cat: "UX/UI design", title: "Nova Bank mobile banking case study",
     desc: "A mobile banking experience designed across nine phases, from research and user flows to wireframes, a UI kit and a clickable prototype.",
     tools: ["Figma", "UX research", "Prototyping", "Design systems"], viz: "phone", cap: "FIG. 01  Design process",
-    links: [{ t: "Case study", h: "#" }] }
+    links: [{ t: "Case study", h: "#" }] },
+  { cat: "Mechanical design & CAD portfolio", title: "Selected CATIA mechanical designs",
+    desc: "A gallery of mechanical CAD models developed in CATIA, showing individual parts, gear and shaft assemblies, an exploded assembly, a linkage mechanism, and larger machine concepts. The images present the 3D geometry and assembly design work across several different projects.",
+    role: "3D CAD modeling and mechanical design visualization.",
+    tools: ["CATIA", "3D CAD modeling", "Mechanical assemblies", "Exploded views"],
+    gallery: true,
+    viz: ["catia01", "catia02", "catia03", "catia04", "catia05", "catia06", "catia07", "catia08", "catia09"],
+    cap: ["FIG. 01  Mechanical component model", "FIG. 02  Watch-style mechanism concept", "FIG. 03  Container component", "FIG. 04  Sprocket wheel", "FIG. 05  Gear and shaft assembly", "FIG. 06  Decorative silhouette model", "FIG. 07  Clamping mechanism", "FIG. 08  Exploded mechanical assembly", "FIG. 09  Tracked excavator concept"] }
 ];
 
 const RESEARCH = [
@@ -366,7 +380,7 @@ const RESEARCH = [
     desc: "Designed and built a two-axis prototype for dry cleaning photovoltaic panels. The concept combines a rotating cylindrical brush with a mechanical travel system and an Arduino-based control subsystem, aiming to remove dust while reducing water use and the risks associated with manual cleaning. The prototype was tested and demonstrated effective cleaning in the thesis evaluation.",
     role: "Mechanical design, subsystem selection, prototype implementation, control electronics, and cleaning-performance evaluation.",
     tools: ["CATIA", "Arduino", "DC motor control", "H-bridge", "Mechanical design", "Rapid prototyping", "Solar energy"],
-    viz: "solar", cap: "FIG. 01  Conceptual layout of the roller-brush cleaning mechanism",
+    viz: "solar", cap: "FIG. 01  Prototype of the solar-panel cleaning robot with Arduino-based control subsystem",
     stats: [["2-axis", "Prototype motion and cleaning-system design"],
             ["Dry cleaning", "Rotating cylindrical roller brush; designed to minimize water use"],
             ["Patent No. 111394", "Registered invention: reciprocating cylindrical roller-brush cleaning robot"]],
@@ -392,7 +406,7 @@ const RESEARCH = [
     tools: ["Residual SAC", "MPC", "EKF", "CVXPY / OSQP", "stable-baselines3", "MuJoCo", "ROS 2", "Gazebo"],
     viz: ["cmg", "results"],
     cap: ["FIG. 01  Roll disturbance, gimbal response, recovery", "FIG. 02  Survival by fault type, four controllers (300 episodes per scenario)"],
-    video: { src: "media/dropout_imu_comparison.mp4", poster: "media/dropout_poster.jpg",
+    video: { src: "dropout_imu_comparison.mp4", poster: "dropout_poster.jpg",
       alt: "MuJoCo simulation of four motorcycle roll-stabilization runs under 30% IMU dropout",
       cap: "FIG. 03  MuJoCo, 30% IMU dropout. Left: Pure SAC, right: Residual SAC. Top: unmodified model (A), bottom: with ±0.8 rad gimbal stops (B).",
       stats: [["82%", "EKF–MPC survival at 50% sensor dropout (N = 20)"],
@@ -406,28 +420,16 @@ const RESEARCH = [
    FIGURES
    ================================================================ */
 const VIZ = {
-solar:`<svg viewBox="0 0 800 340" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Conceptual diagram of a solar panel cleaning robot with a cylindrical roller brush">
-  <defs><linearGradient id="solarPanel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f1e9"/><stop offset="1" stop-color="#d9e0e4"/></linearGradient><linearGradient id="solarRoll" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c4400f"/><stop offset="1" stop-color="#8d2b0a"/></linearGradient></defs>
-  <path d="M92 256 L690 256 L735 294 L137 294 Z" fill="#efede7" stroke="#14171a" stroke-width="1.6"/>
-  <g transform="translate(120 78) skewY(-8)">
-    <rect x="0" y="0" width="560" height="172" fill="url(#solarPanel)" stroke="#14171a" stroke-width="2"/>
-    ${Array.from({length:7},(_,i)=>`<line x1="${i*80}" y1="0" x2="${i*80}" y2="172" stroke="#aab4ba" stroke-width="1.4"/>`).join('')}
-    ${[43,86,129].map(y=>`<line x1="0" y1="${y}" x2="560" y2="${y}" stroke="#aab4ba" stroke-width="1.4"/>`).join('')}
-    <rect x="18" y="14" width="524" height="144" fill="none" stroke="#c4400f" stroke-dasharray="5 6" opacity=".55"/>
-  </g>
-  <g transform="translate(190 50)">
-    <path d="M0 30 L410 30 L438 53 L28 53 Z" fill="#fff" stroke="#14171a" stroke-width="2"/>
-    <path d="M25 53 L25 78 M412 53 L412 78" stroke="#14171a" stroke-width="5" stroke-linecap="round"/>
-    <rect x="18" y="70" width="405" height="18" rx="9" fill="url(#solarRoll)" stroke="#14171a" stroke-width="1.5"/>
-    ${Array.from({length:40},(_,i)=>`<line x1="${28+i*10}" y1="72" x2="${28+i*10}" y2="86" stroke="#f7c5ac" stroke-width="1.2" opacity=".8"/>`).join('')}
-    <circle cx="34" cy="101" r="13" fill="#fff" stroke="#14171a" stroke-width="2"/><circle cx="405" cy="101" r="13" fill="#fff" stroke="#14171a" stroke-width="2"/>
-    <circle cx="34" cy="101" r="4" fill="#c4400f"/><circle cx="405" cy="101" r="4" fill="#c4400f"/>
-    <path d="M65 8 H380" stroke="#c4400f" stroke-width="2" stroke-dasharray="5 6"/><path d="M370 1 L382 8 L370 15" fill="none" stroke="#c4400f" stroke-width="2"/>
-  </g>
-  <path d="M400 154 V194" stroke="#c4400f" stroke-width="1.5" stroke-dasharray="4 5"/>
-  <text class="f-lbl" x="410" y="174" style="fill:#c4400f">rotating roller brush</text>
-  <text class="f-lbl" x="400" y="322" text-anchor="middle">Concept schematic · not a scale drawing of the physical prototype</text>
-</svg>`,
+catia01:`<img src="catia-design-01.webp" alt="CATIA mechanical CAD design 01" loading="lazy">`,
+catia02:`<img src="catia-design-02.webp" alt="CATIA mechanical CAD design 02" loading="lazy">`,
+catia03:`<img src="catia-design-03.webp" alt="CATIA mechanical CAD design 03" loading="lazy">`,
+catia04:`<img src="catia-design-04.webp" alt="CATIA mechanical CAD design 04" loading="lazy">`,
+catia05:`<img src="catia-design-05.webp" alt="CATIA mechanical CAD design 05" loading="lazy">`,
+catia06:`<img src="catia-design-06.webp" alt="CATIA mechanical CAD design 06" loading="lazy">`,
+catia07:`<img src="catia-design-07.webp" alt="CATIA mechanical CAD design 07" loading="lazy">`,
+catia08:`<img src="catia-design-08.webp" alt="CATIA mechanical CAD design 08" loading="lazy">`,
+catia09:`<img src="catia-design-09.webp" alt="CATIA mechanical CAD design 09" loading="lazy">`,
+solar:`<img src="solar_robot_prototype.webp" alt="Prototype of the solar-panel cleaning robot with cylindrical roller brushes and Arduino-based control subsystem">`,
 cmg:`<svg viewBox="0 0 800 340" preserveAspectRatio="xMidYMid meet">
   <line x1="40" y1="262" x2="760" y2="262" stroke="#14171a" stroke-width="1.5"/>
   ${Array.from({length:36},(_,i)=>`<line x1="${50+i*20}" y1="262" x2="${40+i*20}" y2="274" stroke="#d8d5ca"/>`).join('')}
@@ -524,8 +526,8 @@ VIZ.uavres=(()=>{
   return `<svg viewBox="0 0 560 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Error comparison between sliding mode with fast and delayed detection, and hybrid L1 versus Lyapunov position control">${g}<text class="f-lbl" x="12" y="150" transform="rotate(-90 12 150)" text-anchor="middle">metres</text></svg>`;
 })();
 
-const figs=s=>{const ks=[].concat(s.viz),cs=[].concat(s.cap);return `<div class="figs n${ks.length}">${ks.map((k,j)=>`<figure class="viz">${VIZ[k]}<figcaption>${cs[j]}</figcaption></figure>`).join('')}</div>`};
-const vid=v=>v?`<div class="vrow"><figure class="viz video"><video src="${v.src}" poster="${v.poster}" muted loop playsinline preload="metadata" aria-label="${v.alt}"></video><figcaption>${v.cap}</figcaption></figure><dl class="readout">${v.stats.map(([b,l])=>`<div><dt>${b}</dt><dd>${l}</dd></div>`).join('')}<p>${v.note}</p></dl></div>`:'';
+const figs=s=>{const ks=[].concat(s.viz),cs=[].concat(s.cap);return `<div class="figs n${ks.length} ${s.gallery?'gallery':''}">${ks.map((k,j)=>`<figure class="viz">${VIZ[k]}<figcaption>${cs[j]}</figcaption></figure>`).join('')}</div>`};
+const vid=v=>v?`<div class="vrow"><figure class="viz video"><video controls src="${v.src}" poster="${v.poster}" muted playsinline preload="metadata" aria-label="${v.alt}"><source src="${v.src}" type="video/mp4">Your browser does not support MP4 video.</video><figcaption>${v.cap}</figcaption></figure><dl class="readout">${v.stats.map(([b,l])=>`<div><dt>${b}</dt><dd>${l}</dd></div>`).join('')}<p>${v.note}</p></dl></div>`:'';
 
 const stat=s=>s.stats?`<dl class="readout wide">${s.stats.map(([b,l])=>`<div><dt>${b}</dt><dd>${l}</dd></div>`).join('')}</dl>`:'';
 const pts=s=>s.points?`<div class="pts"><span class="lbl">WHAT I DID</span><ol>${s.points.map(([h,t])=>`<li><b>${h}</b>${t}</li>`).join('')}</ol>${s.tooling?`<p class="tooling">TOOLING  ${s.tooling}</p>`:''}</div>`:'';
